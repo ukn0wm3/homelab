@@ -44,7 +44,7 @@ Device → Pi-hole (DNS) → NPM (HTTPS) → Service
 Device → Tailscale (encrypted tunnel) → Proxmox host → NPM → Service
 ```
 
-DuckDNS is used purely to get a valid Let's Encrypt TLS certificate for HTTPS — it doesn't expose anything publicly. Pi-hole resolves the domain internally so it works on the LAN without hitting the internet.
+DuckDNS is used purely to get a valid Let's Encrypt TLS certificate for HTTPS; it doesn't expose anything publicly. Pi-hole resolves the domain internally so it works on the LAN without hitting the internet.
 
 ---
 
