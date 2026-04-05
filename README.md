@@ -19,14 +19,14 @@ A self-hosted home server built on an old laptop running Proxmox, serving as a p
 
 ## 🧱 Services
 
-| Service | Purpose | Deployed As |
-|---|---|---|
-| [Nginx Proxy Manager](nginx-proxy-manager.md) | Reverse proxy + TLS | LXC 
-| [Pi-hole](pi-hole.md) | DNS + ad blocking | LXC 
-| [Nextcloud](nextcloud.md) | File storage + sync | LXC (PVE Helper Script) 
-| [Immich](immich.md) | Photo backup | LXC (PVE Helper Script) 
-| [Vaultwarden](vaultwarden.md) | Password manager | LXC 
-| [Tailscale](tailscale.md) | Remote access VPN | LXC 
+| Service | Purpose | 
+|---|---|
+| [Nginx Proxy Manager](nginx-proxy-manager.md) | Reverse proxy + TLS |
+| [Pi-hole](pi-hole.md) | DNS + ad blocking |
+| [Nextcloud](nextcloud.md) | File storage + sync | 
+| [Immich](immich.md) | Photo backup |
+| [Vaultwarden](vaultwarden.md) | Password manager |  
+| [Tailscale](tailscale.md) | Remote access VPN  |
 
 ---
 
