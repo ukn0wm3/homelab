@@ -8,7 +8,7 @@ Nextcloud is a self-hosted file sync and sharing platform, essentially a persona
 
 - **Type:** LXC container (CT 103)
 - **RAM:** 6GB
-- **Storage:** 300GB on Samsung external SSD (container root disk)
+- **Storage:** 150GB on Samsung external SSD (container root disk)
 - **Installed via:** [Proxmox VE Scripts](https://community-scripts.org/) — NextcloudPi variant
 
 The helper script installs NextcloudPi, which comes with Apache, MariaDB, and PHP pre-configured. Significantly faster than a manual install (I tried manual, not worth the hours spent on troubleshooting).
@@ -20,10 +20,6 @@ See [`scripts/nextcloud-install.sh`](../scripts/nextcloud-install.sh) for the sc
 Accessible on the LAN via NPM and remotely via Tailscale. Not publicly exposed.
 
 NPM proxy host points HTTPS → Nextcloud LXC on port 443.
-
-## Storage
-
-The container's root disk lives on the Samsung external SSD. This gives Nextcloud ~200GB to work with for files and application data without touching the internal drive.
 
 ## Config changes post-install
 
