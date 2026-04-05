@@ -11,7 +11,7 @@ Nextcloud is a self-hosted file sync and sharing platform, essentially a persona
 - **Storage:** 300GB on Samsung external SSD (container root disk)
 - **Installed via:** [Proxmox VE Scripts](https://community-scripts.org/) — NextcloudPi variant
 
-The helper script installs NextcloudPi, which comes with Apache, MariaDB, and PHP pre-configured. Significantly faster than a manual install(I tried manual, not worth the hours spent on troubleshooting).
+The helper script installs NextcloudPi, which comes with Apache, MariaDB, and PHP pre-configured. Significantly faster than a manual install (I tried manual, not worth the hours spent on troubleshooting).
 
 See [`scripts/nextcloud-install.sh`](../scripts/nextcloud-install.sh) for the script used.
 
