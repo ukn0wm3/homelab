@@ -6,7 +6,7 @@ Nextcloud is a self-hosted file sync and sharing platform, essentially a persona
 
 ## Deployment
 
-- **Type:** LXC container (CT 103)
+- **Type:** LXC container (CT 104)
 - **RAM:** 6GB
 - **Storage:** 150GB on Samsung external SSD (container root disk)
 - **Installed via:** [Proxmox VE Scripts](https://community-scripts.org/) — NextcloudPi variant

@@ -6,7 +6,7 @@ Immich is a self-hosted photo and video backup solution. A replacement for Googl
 
 ## Deployment
 
-- **Type:** LXC container (CT 104)
+- **Type:** LXC container (CT 103)
 - **RAM:** 6GB
 - **Storage:** 300GB on Samsung external SSD (container root disk)
 - **Installed via:** [Proxmox VE Community Scripts](https://community-scripts.github.io/ProxmoxVE/) (community maintained)
