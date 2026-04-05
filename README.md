@@ -20,7 +20,7 @@ A self-hosted home server built on an old laptop running Proxmox, serving as a p
 ## 🧱 Services
 
 | Service | Purpose | Deployed As |
-|---|---|---|---|
+|---|---|---|
 | [Nginx Proxy Manager](nginx-proxy-manager.md) | Reverse proxy + TLS | LXC |
 | [Pi-hole](pi-hole.md) | DNS + ad blocking | LXC |
 | [Nextcloud](nextcloud.md) | File storage + sync | LXC (PVE Helper Script) | 
