@@ -2,36 +2,41 @@
 
 ## What it does
 
-NPM acts as the single entry point for all internal HTTPS traffic. It receives requests from devices on the local network (and via Tailscale), terminates TLS, and routes traffic to the correct service based on the subdomain.
+NPM acts as the single entry point for all HTTPS traffic on the home network. It receives requests from devices on the LAN (and via Tailscale), terminates TLS, and routes to the correct service based on the subdomain.
 
-It also handles automatic Let's Encrypt certificate issuance and renewal for the DuckDNS domain. The cert is what enables proper HTTPS — without it, browsers would show certificate warnings, and Vaultwarden would refuse to work entirely.
+It also handles automatic Let's Encrypt certificate issuance and renewal via the DuckDNS DNS challenge. The certificate is what enables proper HTTPS. Without it, browsers show warnings and Vaultwarden refuses to work entirely.
 
 ## Deployment
 
-- **Type:** LXC container
+- **Type:** LXC container (CT 101)
 - **RAM:** 512MB
-- **Storage:** 8GB (internal SSD)
+- **Storage:** Internal SSD
+- **Installed via:** Docker Compose inside the LXC (`apt install docker.io docker-compose`)
 
 ## Proxy Hosts
 
-| Domain | Forwarded To | TLS |
+| Domain | Forwarded To | WebSockets |
 |---|---|---|
-| nextcloud.yourdomain.duckdns.org | Nextcloud LXC IP:80 | Let's Encrypt |
-| photos.yourdomain.duckdns.org | Immich LXC IP:2283 | Let's Encrypt |
-| vault.yourdomain.duckdns.org | Vaultwarden LXC IP:80 | Let's Encrypt |
+| vault.yourdomain.duckdns.org | Vaultwarden. IP:80 | Enabled |
+| nextcloud.yourdomain.duckdns.org | Nextcloud. IP:443 | — |
+| immich.yourdomain.duckdns.org | Immich. IP:2283 | Enabled |
 
 ## How the cert works without port forwarding
 
-Let's Encrypt normally validates domain ownership via an HTTP challenge — it tries to reach your server from the internet. Since no ports are forwarded, this would fail.
+Let's Encrypt normally validates via an HTTP challenge . It tries to reach your server from the internet. Since no ports are forwarded this would fail.
 
-Instead, NPM uses the **DNS-01 challenge** via DuckDNS. DuckDNS supports this natively — NPM proves domain ownership by writing a temporary DNS record rather than serving a file over HTTP. No inbound ports needed.
+Instead NPM uses the **DNS-01 challenge** via DuckDNS. NPM proves domain ownership by writing a temporary TXT record to DuckDNS rather than serving a file over HTTP. This was done by providing the API provided upon creation of the domain. No inbound ports needed.
+
+A wildcard certificate (`*.yourdomain.duckdns.org`) was issued. This covers all subdomains with a single cert.
 
 ## Problems Hit
 
-**Internal DNS not resolving the domain** — After setting up proxy hosts, devices on the local network couldn't reach services by domain name. The public DuckDNS DNS pointed to the home's external IP, and NAT loopback wasn't working reliably on the router. Fixed by adding local DNS records in Pi-hole pointing the subdomains directly to NPM's internal IP (split-horizon DNS).
+**SSL certificate save failed on first attempt** — Let's Encrypt DNS challenge failed due to DNS propagation delay. Fixed by setting the Propagation Seconds field to 120 in NPM and retrying after a few minutes.
 
-**WebSocket errors** — Both Immich and Vaultwarden need WebSocket connections for certain features. Had to enable the WebSocket option in each NPM proxy host's advanced settings.
+**Internal DNS not resolving the domain** — After setting up proxy hosts, devices on the LAN couldn't reach services by domain name. Fixed by adding local DNS records in Pi-hole pointing each subdomain directly to NPM's internal IP.
+
+**WebSocket errors** — Immich and Vaultwarden both require WebSocket connections for certain features. Had to enable WebSocket support in each proxy host's settings in NPM.
 
 ## What I'd do differently
 
-Look into Cloudflare tunnels as an alternative — they also avoid port forwarding but add Cloudflare's DDoS protection and don't require a DuckDNS account. Slightly more complex to set up initially.
+Look into Cloudflare tunnels as an alternative; they also avoid port forwarding but add DDoS protection and don't require a DuckDNS account. Slightly more setup but more robust long term.
