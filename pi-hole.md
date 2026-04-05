@@ -37,9 +37,9 @@ DNS was set manually on each device individually rather than at the router level
 
 ## Problems Hit
 
-**Pi-hole doesn't support wildcard DNS** — Tried to add `*.yourdomain.duckdns.org` as a single catch-all record but Pi-hole rejected it. Each service subdomain has to be added individually as new services are created.
+**Pi-hole doesn't support wildcard DNS**. I tried to add `*.yourdomain.duckdns.org` as a single catch-all record but Pi-hole rejected it. Each service subdomain has to be added individually as new services are created.
 
-**DNS still resolving incorrectly after changes** — Windows was caching old DNS entries. Fixed by running `ipconfig /flushdns` after making any DNS changes.
+**DNS still resolving incorrectly after changes**. Windows was caching old DNS entries. Fixed by running `ipconfig /flushdns` after making any DNS changes.
 
 
 ## What I'd do differently
