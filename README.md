@@ -21,12 +21,12 @@ A self-hosted home server built on an old laptop running Proxmox, serving as a p
 
 | Service | Purpose | Deployed As |
 |---|---|---|
-| [Nginx Proxy Manager](nginx-proxy-manager.md) | Reverse proxy + TLS | LXC |
-| [Pi-hole](pi-hole.md) | DNS + ad blocking | LXC |
-| [Nextcloud](nextcloud.md) | File storage + sync | LXC (PVE Helper Script) | 
-| [Immich](immich.md) | Photo backup | LXC (PVE Helper Script) | 
-| [Vaultwarden](vaultwarden.md) | Password manager | LXC | 
-| [Tailscale](tailscale.md) | Remote access VPN | LXC | 
+| [Nginx Proxy Manager](nginx-proxy-manager.md) | Reverse proxy + TLS | LXC 
+| [Pi-hole](pi-hole.md) | DNS + ad blocking | LXC 
+| [Nextcloud](nextcloud.md) | File storage + sync | LXC (PVE Helper Script) 
+| [Immich](immich.md) | Photo backup | LXC (PVE Helper Script) 
+| [Vaultwarden](vaultwarden.md) | Password manager | LXC 
+| [Tailscale](tailscale.md) | Remote access VPN | LXC 
 
 ---
 
@@ -70,12 +70,11 @@ homelab/
 
 ## 🧠 Why I Built This
 
-Wanted to move away from relying on third-party cloud services for personal data and learn practical self-hosting, networking, and Linux administration. Running this server has given me hands-on experience with:
+I wanted to move away from relying on third-party cloud services for personal data and learn practical self-hosting, networking, and Linux administration. Running this server has given me hands-on experience with:
 
 - Proxmox virtualisation and LXC containers
 - Reverse proxying and TLS certificate management
 - DNS, split-horizon DNS, and local name resolution
-- Docker and Docker Compose
 - WireGuard-based networking via Tailscale
 - Linux service administration and troubleshooting
 
