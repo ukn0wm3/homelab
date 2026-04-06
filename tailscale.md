@@ -32,8 +32,8 @@ Cloudflare (1.1.1.1) is set as a fallback nameserver in case Pi-hole goes down.
 
 ## How it works in practice
 
-- **Tailscale ON + away from home:** DNS routes through Pi-hole, internal domain names resolve, all services accessible
-- **Tailscale OFF:** Normal internet works, no access to home services
+- **Tailscale ON + away from home** — DNS routes through Pi-hole, internal domain names resolve, all services accessible
+- **Tailscale OFF** — Normal internet works, no access to home services
 - **Not configured as an exit node** — only DNS and LAN access route through home, not all internet traffic
 
 ## Problems Hit
