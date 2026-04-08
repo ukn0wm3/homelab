@@ -62,8 +62,6 @@ homelab/
 ├── tailscale.md
 └── scripts/
     ├── README.md
-    ├── nextcloud-install.sh
-    └── immich-install.sh
 ```
 
 ---
@@ -72,7 +70,7 @@ homelab/
 
 I wanted to move away from relying on third-party cloud services for personal data and learn practical self-hosting, networking, and Linux administration. Running this server has given me hands-on experience with:
 
-- Proxmox virtualisation and LXC containers
+- Proxmox virtualization and LXC containers
 - Reverse proxying and TLS certificate management
 - DNS, split-horizon DNS, and local name resolution
 - WireGuard-based networking via Tailscale
